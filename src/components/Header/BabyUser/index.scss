@@ -1,0 +1,33 @@
+@import "../../../Styles/global.scss";
+
+.baby-user-container {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+
+  & > div {
+    & > img {
+      width: 50px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .baby-name-container {
+    position: relative;
+
+    .baby-name {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 1px $main-text-color;
+
+      @media (max-width: $mobile) {
+        font-size: 1.75rem;
+        letter-spacing: 1px;
+        text-shadow: none;
+      }
+    }
+  }
+}

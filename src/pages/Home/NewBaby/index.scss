@@ -1,0 +1,11 @@
+.new-baby-notice-container {
+  display: flex;
+  flex-flow: column;
+  row-gap: 12px;
+
+  h1,
+  p {
+    margin: 0;
+    text-align: center;
+  }
+}

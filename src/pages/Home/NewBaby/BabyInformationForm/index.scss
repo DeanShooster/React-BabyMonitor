@@ -1,0 +1,5 @@
+@import "../../../../Styles/global.scss";
+
+form {
+  @include formWithLabel;
+}

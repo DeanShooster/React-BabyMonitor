@@ -1,0 +1,124 @@
+//*********************************************** Font Themes **********************************************\\
+@font-face {
+  font-family: "Roboto Flex", sans-serif;
+  src: url("../../public/RobotoFlex-Regular.ttf") format("trueType");
+}
+
+$main-font: "Roboto Flex", sans-serif;
+
+//*********************************************** Color Themes **********************************************\\
+$main-bg: rgb(19, 25, 32);
+$main-text-color: #fff;
+
+$border-color: rgb(62, 72, 83);
+
+$error-color: red;
+
+$white-box-shadow: 0 0 8px 0 $main-text-color;
+
+//*********************************************** Media / General **********************************************\\
+
+$laptop: 1250px;
+$mobile: 600px;
+
+$transition-speed: 0.5s;
+$border-radius: 10px;
+
+//*********************************************** Mixins **********************************************\\
+@mixin centerPosition($pos) {
+  position: $pos;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin input {
+  padding: 5px 10px 5px 0;
+
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+
+  border-radius: $border-radius;
+
+  @media (max-width: $laptop) {
+    font-size: 1.1rem;
+  }
+  @media (max-width: $mobile) {
+    font-size: 0.9rem;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@mixin button {
+  padding: 6px 12px;
+
+  background-color: $main-bg;
+  color: $main-text-color;
+
+  border: none;
+  border-radius: $border-radius;
+  outline: 1px solid $main-text-color;
+
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+
+  transition: $transition-speed;
+
+  @media (max-width: $mobile) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: $main-text-color;
+    color: $main-bg;
+
+    outline: none;
+
+    transition: $transition-speed;
+  }
+}
+
+@mixin formWithLabel {
+  display: flex;
+  flex-flow: column;
+  row-gap: 16px;
+  align-items: center;
+
+  & > div {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 6px;
+
+    @media (max-width: $laptop) {
+      column-gap: 12px;
+    }
+  }
+
+  label {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+
+    @media (max-width: $laptop) {
+      font-size: 1.25rem;
+    }
+    @media (max-width: $mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  input {
+    @include input;
+  }
+
+  button {
+    @include button;
+  }
+}

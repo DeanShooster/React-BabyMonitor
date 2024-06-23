@@ -1,0 +1,27 @@
+@import "../../Styles/global.scss";
+
+.loader-wrapper {
+  .spinner {
+    transform-origin: center;
+    animation: spinner-circle 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  }
+}
+
+.loader-absolute-center {
+  @include centerPosition(absolute);
+}
+
+@keyframes spinner-circle {
+  0% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -105;
+  }
+  50% {
+    stroke-dasharray: 80 10;
+    stroke-dashoffset: -160;
+  }
+  100% {
+    stroke-dasharray: 1 98;
+    stroke-dashoffset: -300;
+  }
+}

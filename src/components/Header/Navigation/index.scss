@@ -1,0 +1,42 @@
+@import "../../../Styles/global.scss";
+
+nav {
+  display: flex;
+  column-gap: 24px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media (max-width: $mobile) {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  & > a {
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    img {
+      width: 40px;
+    }
+  }
+
+  .bottle {
+    background-color: rgb(0, 132, 255);
+  }
+
+  .bed {
+    background-color: rgb(168, 90, 0);
+  }
+
+  .diaper {
+    background-color: rgb(1, 141, 75);
+  }
+}
