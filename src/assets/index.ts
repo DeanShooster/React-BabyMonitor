@@ -7,3 +7,4 @@ export { default as BabyBottle } from "./svg/BabyBottle.svg";
 export { default as Bed } from "./svg/Bed.svg";
 export { default as Diaper } from "./svg/Diaper.svg";
 export { default as Upload } from "./svg/Upload.svg";
+export { default as SuccessMark } from "./svg/SuccessMark.svg";

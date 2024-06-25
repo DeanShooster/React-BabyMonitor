@@ -11,6 +11,7 @@ interface IBabyContext {
 export interface IBaby {
   motherName: string;
   babyName: string;
+  avatar: string;
   information: {
     weight: number[];
     height: number[];

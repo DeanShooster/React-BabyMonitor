@@ -1,0 +1,12 @@
+@import "../../../../Styles/global.scss";
+
+.welcome-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  row-gap: 16px;
+
+  button {
+    @include button;
+  }
+}

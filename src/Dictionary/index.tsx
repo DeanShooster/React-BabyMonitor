@@ -19,6 +19,7 @@ export const HebrewDictionary: IDictionary = {
     invalidWeight: "משקל לא תקין",
     invalidHeight: "גובה לא תקין",
     invalidBirthDate: "תאריך לידה לא תקין",
+    invalidFile: "קובץ לא תקין",
   },
   Home: {
     welcome: "ברוך הבא",
@@ -26,5 +27,6 @@ export const HebrewDictionary: IDictionary = {
     weight: `משקל גרם`,
     height: `גובה ס"מ`,
     birthDate: "תאריך לידה",
+    successSign: "הרשמה בוצעה בהצלחה!",
   },
 };

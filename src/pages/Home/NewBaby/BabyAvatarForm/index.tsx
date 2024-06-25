@@ -7,10 +7,11 @@ import { Upload } from "../../../../assets";
 import { UploadAvatar } from "../../../../API/Home";
 import { TOKEN_NAME } from "../../../../constants";
 import { useLoader } from "../../../../Hooks/useLoader";
+import { ErrorMsg } from "../../../../components/ErrorMsg";
 
 interface IBabyAvatarForm {
   nextStep: Function;
-  setUpdatedBaby: Function;
+  setUpdatedBaby?: Function;
 }
 
 export const BabyAvatarForm = ({ nextStep, setUpdatedBaby }: IBabyAvatarForm) => {
@@ -18,12 +19,13 @@ export const BabyAvatarForm = ({ nextStep, setUpdatedBaby }: IBabyAvatarForm) =>
 
   const hiddenInputFileRef = useRef<HTMLInputElement | null>(null);
   const [fileName, setFileName] = useState<string | null>(null);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   const { isLoading, setIsLoading, loader } = useLoader({ size: 50, removeAbsolute: true });
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (hiddenInputFileRef.current?.files) {
+    if (hiddenInputFileRef.current?.files && hiddenInputFileRef.current.files[0]) {
       const formData = new FormData();
       formData.append("avatar", hiddenInputFileRef.current.files[0]);
 
@@ -31,7 +33,12 @@ export const BabyAvatarForm = ({ nextStep, setUpdatedBaby }: IBabyAvatarForm) =>
       if (token) {
         setIsLoading(true);
         const result = await UploadAvatar(formData, token);
-        if (!result.Error) setUpdatedBaby(result.babyMonitor);
+        if (result.Error) {
+          if (result.status === 400) setErrorMsg(dictionary.Errors.invalidFile);
+        } else {
+          if (setUpdatedBaby) setUpdatedBaby(result.babyMonitor);
+          setErrorMsg(null);
+        }
       }
       setIsLoading(false);
     }
@@ -50,8 +57,12 @@ export const BabyAvatarForm = ({ nextStep, setUpdatedBaby }: IBabyAvatarForm) =>
       <input type="file" name="avatar" ref={hiddenInputFileRef} style={{ display: "none" }} onChange={handleFileChange} />
       <button className="upload-button" onClick={uploadFileHandler}>
         <span>{fileName || dictionary.General.uploadFile}</span>
+        {hiddenInputFileRef.current?.files && hiddenInputFileRef.current.files[0] && (
+          <Image imageSrc={URL.createObjectURL(hiddenInputFileRef.current.files[0])} className="uploaded-image" />
+        )}
         <Image imageSrc={Upload} />
       </button>
+      {errorMsg && <ErrorMsg message={errorMsg} />}
       {isLoading ? loader : <button>{dictionary.General.next}</button>}
     </form>
   );
