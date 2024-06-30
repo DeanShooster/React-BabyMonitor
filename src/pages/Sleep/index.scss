@@ -1,0 +1,16 @@
+.start-end-container {
+  margin: 16px 0;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  & > div {
+    display: flex;
+    align-items: center;
+
+    & > input {
+      cursor: pointer;
+    }
+  }
+}

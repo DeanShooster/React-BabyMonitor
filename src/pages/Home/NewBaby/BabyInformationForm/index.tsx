@@ -4,6 +4,7 @@ import { MAX_BABY_AGE, MAX_BABY_HEIGHT, MAX_BABY_WEIGHT, MIN_BABY_HEIGHT, MIN_BA
 import { UpdateInformation } from "../../../../API/Home";
 
 import { getAgeInYear, isBefore } from "../../../../utils/date";
+import { formDataGenerator } from "../../../../utils/form";
 
 import { useLoader } from "../../../../Hooks/useLoader";
 import { ErrorMsg } from "../../../../components/ErrorMsg";
@@ -27,8 +28,7 @@ export const BabyInformationForm = ({ nextStep, setUpdatedBaby }: IBabyInformati
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData: { [key: string]: string } = {};
-    new FormData(event.currentTarget).forEach((value: FormDataEntryValue, key: string) => (formData[key] = value as string));
+    const formData = formDataGenerator(event);
 
     const weight = Number(formData.weight);
     const height = Number(formData.height);

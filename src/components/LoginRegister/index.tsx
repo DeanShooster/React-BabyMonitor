@@ -1,15 +1,17 @@
 import { useContext, useState } from "react";
+import { BabyContext } from "../../Context/BabyContext";
 import { DictionaryContext } from "../../Context/DictionaryContext";
 import { MAX_INPUT_NAME_LENGTH, MIN_INPUT_NAME_LENGTH, TOKEN_NAME } from "../../constants";
 import { isHebrew } from "../../utils/regex";
 import { AppSign } from "../../API/Authentication";
+
+import { formDataGenerator } from "../../utils/form";
 
 import { ErrorMsg } from "../ErrorMsg";
 
 import "./index.scss";
 import { BabyFace } from "../../assets";
 import { Image } from "../Image";
-import { BabyContext } from "../../Context/BabyContext";
 import { useLoader } from "../../Hooks/useLoader";
 
 export const LoginRegister = () => {
@@ -25,8 +27,7 @@ export const LoginRegister = () => {
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formData: { [key: string]: string } = {};
-    new FormData(event.currentTarget).forEach((value: FormDataEntryValue, key: string) => (formData[key] = value as string));
+    const formData = formDataGenerator(event);
 
     if (!Object.values(formData).every((value: string) => value !== "")) {
       setErrorMsg(noData);

@@ -5,12 +5,14 @@ const defaultDictionary: IDictionary = {
   General: {},
   Errors: {},
   Home: {},
+  HeadersForm: {},
 };
 
 export interface IDictionary {
   General: { [key: string]: string };
   Errors: { [key: string]: string };
   Home: { [key: string]: string };
+  HeadersForm: { [key: string]: string };
 }
 
 interface IDictionaryContext {

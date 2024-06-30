@@ -15,14 +15,14 @@ export const Image = ({ imageSrc, imageAlt, margin, className, onClick }: IImage
   return (
     <div
       className={`image-wrapper-cmp ${className || ""}`}
-      style={
-        margin
+      style={{
+        ...(margin
           ? {
               marginTop: margin.top,
               marginBottom: margin.bottom,
             }
-          : undefined
-      }
+          : undefined),
+      }}
       onClick={() => {
         if (onClick) onClick();
       }}

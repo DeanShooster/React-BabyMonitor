@@ -10,6 +10,8 @@ export const HebrewDictionary: IDictionary = {
     password: "סיסמא",
     next: "המשך",
     uploadFile: "תמונה להעלאה",
+    lastUpdate: "עודכן לאחרונה",
+    missingInformation: "אין נתונים קודמים",
   },
   Errors: {
     noData: "חסרים נתונים",
@@ -28,5 +30,18 @@ export const HebrewDictionary: IDictionary = {
     height: `גובה ס"מ`,
     birthDate: "תאריך לידה",
     successSign: "הרשמה בוצעה בהצלחה!",
+    dailyStats: "נתון יומי",
+    singleYear: "שנה",
+    manyYears: "שנים",
+    singleMonth: "חודש",
+    manyMonths: "חודשים",
+    singleDay: "יום",
+    manyDays: "ימים",
+  },
+  HeadersForm: {
+    notes: "הערות",
+    update: "עדכון",
+    start: "התחלה",
+    end: "סיום",
   },
 };
