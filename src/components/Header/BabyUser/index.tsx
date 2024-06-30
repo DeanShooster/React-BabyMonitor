@@ -6,7 +6,7 @@ import { BabyAvatarForm } from "../../../pages/Home/NewBaby/BabyAvatarForm";
 
 import "./index.scss";
 import { Image } from "../../Image";
-import { EmptyUserProfile } from "../../../assets";
+import { EmptyUserProfile, X } from "../../../assets";
 
 export const BabyUser = () => {
   const { baby, setBaby } = useContext(BabyContext);
@@ -22,6 +22,7 @@ export const BabyUser = () => {
       </div>
       {uploadAvatar && (
         <Modal>
+          <Image imageSrc={X} onClick={() => setUploadAvatar(false)} className="x-close-modal-icon" />
           <BabyAvatarForm nextStep={() => setUploadAvatar(false)} setUpdatedBaby={setBaby} />
         </Modal>
       )}

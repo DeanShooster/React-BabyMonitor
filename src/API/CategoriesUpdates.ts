@@ -12,6 +12,12 @@ interface ISleepInformation {
   note: string;
 }
 
+interface IFeedInformation {
+  isBottle: boolean;
+  time: Date;
+  note: string;
+}
+
 const baseURL = "/information";
 
 export async function UpdateDiaperInformation(diaperInformation: IDiaperInformation, token: string) {
@@ -28,6 +34,15 @@ export async function UpdateSleepInformation(sleepInformation: ISleepInformation
     method: "POST",
     headers: { "Content-Type": "application/json", token },
     body: JSON.stringify(sleepInformation),
+  });
+  return errorHandler(result);
+}
+
+export async function UpdateFeedInformation(feedInformation: IFeedInformation, token: string) {
+  const result = await fetch(`${server}${baseURL}/feed`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", token },
+    body: JSON.stringify(feedInformation),
   });
   return errorHandler(result);
 }

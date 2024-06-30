@@ -28,8 +28,7 @@ interface IMonitor {
 }
 
 interface IFeed {
-  startTime: Date;
-  endTime?: Date;
+  time: Date;
   isBottle: boolean;
   note?: string;
 }

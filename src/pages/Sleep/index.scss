@@ -12,5 +12,9 @@
     & > input {
       cursor: pointer;
     }
+
+    .blocked-text {
+      text-decoration: line-through;
+    }
   }
 }

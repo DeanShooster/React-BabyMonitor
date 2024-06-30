@@ -13,7 +13,6 @@ import { LastUpdate } from "../../components/LastUpdate";
 import { TextAreaNotes } from "../../components/TextAreaNotes";
 import { ErrorMsg } from "../../components/ErrorMsg";
 
-import "./index.scss";
 import { Pee, Poop } from "../../assets";
 import { Image } from "../../components/Image";
 import { useLoader } from "../../Hooks/useLoader";
@@ -51,9 +50,9 @@ export const Diaper = () => {
 
   return (
     <BabyFormModal>
-      <LastUpdate date={baby?.monitor?.[baby.monitor.length - 1]?.diapers?.[baby.monitor[baby.monitor.length - 1].diapers.length - 1].time ?? undefined} />
+      <LastUpdate date={baby?.monitor[baby?.monitor.length - 1].diapers[baby?.monitor[baby?.monitor.length - 1].diapers.length - 1]?.time} />
       <form onSubmit={submitHandler}>
-        <div className="pee-poop-container">
+        <div className="header-form-selector-images-container">
           <Image imageSrc={Poop} onClick={() => setIsPee(false)} className={isPee ? "not-selected-img" : "selected-img"} />
           <Image imageSrc={Pee} onClick={() => setIsPee(true)} className={isPee ? "selected-img" : "not-selected-img"} />
         </div>

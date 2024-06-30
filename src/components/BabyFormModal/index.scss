@@ -1,19 +1,5 @@
 @import "../../Styles/global.scss";
 
 .close-modal-icon {
-  width: fit-content;
-  margin-right: auto;
-  padding: 5px;
-
-  border-radius: 50%;
-
-  &:hover {
-    cursor: pointer;
-
-    outline: 1px solid $main-text-color;
-  }
-
-  & > img {
-    width: 25px;
-  }
+  @include x-close-btn;
 }

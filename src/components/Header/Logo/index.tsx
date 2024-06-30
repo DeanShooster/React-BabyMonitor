@@ -4,7 +4,7 @@ import { Film } from "../../../assets";
 
 export const Logo = () => {
   return (
-    <div className="app-logo">
+    <div className="app-logo" onClick={() => alert("WORK IN PROGRESS")}>
       <Image imageSrc={Film} />
     </div>
   );

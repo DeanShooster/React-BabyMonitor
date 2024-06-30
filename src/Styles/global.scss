@@ -122,3 +122,52 @@ $border-radius: 10px;
     @include button;
   }
 }
+
+@mixin x-close-btn {
+  width: fit-content;
+  margin-right: auto;
+  padding: 5px;
+
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+
+    outline: 1px solid $main-text-color;
+  }
+
+  & > img {
+    width: 25px;
+  }
+}
+
+//*********************************************** Classes **********************************************\\
+.header-form-selector-images-container {
+  margin: 16px 0;
+  padding: 5px 0;
+
+  display: flex;
+  justify-content: space-evenly;
+
+  img {
+    padding: 10px;
+  }
+
+  .not-selected-img {
+    transition: $transition-speed;
+
+    &:hover {
+      cursor: pointer;
+      transition: $transition-speed;
+
+      transform: scale(1.05) rotateY(180deg);
+    }
+  }
+
+  .selected-img {
+    cursor: not-allowed;
+
+    border-radius: 50%;
+    outline: 4px double $main-text-color;
+  }
+}

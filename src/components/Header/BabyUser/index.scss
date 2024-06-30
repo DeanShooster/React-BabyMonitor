@@ -31,3 +31,8 @@
     }
   }
 }
+
+.x-close-modal-icon {
+  @include x-close-btn;
+  margin-bottom: 10px;
+}

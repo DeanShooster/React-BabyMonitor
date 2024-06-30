@@ -43,5 +43,8 @@ export const HebrewDictionary: IDictionary = {
     update: "עדכון",
     start: "התחלה",
     end: "סיום",
+    sleepingBaby: "התינוק ישן",
+    stillAsleep: "התינוק עדיין ישן",
+    hours: "שעות",
   },
 };

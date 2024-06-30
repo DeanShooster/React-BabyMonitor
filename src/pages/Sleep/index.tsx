@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { routes } from "../../Routes";
 import { DictionaryContext } from "../../Context/DictionaryContext";
@@ -11,6 +11,7 @@ import { BabyFormModal } from "../../components/BabyFormModal";
 import { ErrorMsg } from "../../components/ErrorMsg";
 import { LastUpdate } from "../../components/LastUpdate";
 import { TextAreaNotes } from "../../components/TextAreaNotes";
+import { TimeAsleep } from "./TimeAsleep";
 
 import "./index.scss";
 import { useLoader } from "../../Hooks/useLoader";
@@ -27,6 +28,14 @@ export const Sleep = () => {
 
   const { isLoading, setIsLoading, loader } = useLoader({ size: 50, removeAbsolute: true });
 
+  const lastSleepItem = baby?.monitor[baby?.monitor.length - 1].sleep[baby?.monitor[baby?.monitor.length - 1].sleep.length - 1];
+  const isEndTime = lastSleepItem?.startTime && !lastSleepItem.endTime;
+  const isStartTime = lastSleepItem?.startTime && lastSleepItem.endTime ? true : false;
+
+  useEffect(() => {
+    if (isEndTime) setIsStart(false);
+  }, [isEndTime]);
+
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -38,11 +47,11 @@ export const Sleep = () => {
       setIsLoading(true);
       const result = await UpdateSleepInformation(formData, token);
       if (result.Error) {
-        // error msg
+        setErrorMsg(dictionary.Errors.somethingWentWrong);
       } else {
-        // setBaby(result.babyMonitor);
+        setBaby(result.babyMonitor);
         setErrorMsg(null);
-        // navigate(routes.Home);
+        navigate(routes.Home);
       }
       setIsLoading(false);
     }
@@ -50,7 +59,7 @@ export const Sleep = () => {
 
   return (
     <BabyFormModal>
-      <LastUpdate date={undefined} />
+      <LastUpdate date={lastSleepItem?.startTime} />
       <form onSubmit={submitHandler}>
         <div className="start-end-container">
           <div>
@@ -61,8 +70,9 @@ export const Sleep = () => {
               onClick={() => {
                 if (!isStart) setIsStart(!isStart);
               }}
+              disabled={isEndTime}
             />
-            <label>{dictionary.HeadersForm.start}</label>
+            <label className={isEndTime ? "blocked-text" : undefined}>{dictionary.HeadersForm.start}</label>
           </div>
           <div>
             <input
@@ -72,11 +82,13 @@ export const Sleep = () => {
               onClick={() => {
                 if (isStart) setIsStart(!isStart);
               }}
+              disabled={isStartTime}
             />
-            <label>{dictionary.HeadersForm.end}</label>
+            <label className={isStartTime ? "blocked-text" : undefined}>{dictionary.HeadersForm.end}</label>
           </div>
         </div>
-        <TextAreaNotes />
+        {lastSleepItem && <TimeAsleep startTime={lastSleepItem.startTime} endTime={lastSleepItem?.endTime} />}
+        <TextAreaNotes note={isEndTime ? lastSleepItem?.note : ""} />
         {isLoading ? loader : <button>{dictionary.HeadersForm.update}</button>}
         {errorMsg && <ErrorMsg message={errorMsg} />}
       </form>

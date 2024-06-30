@@ -4,6 +4,7 @@ import { DictionaryContext } from "../../Context/DictionaryContext";
 import { MAX_INPUT_NAME_LENGTH, MIN_INPUT_NAME_LENGTH, TOKEN_NAME } from "../../constants";
 import { isHebrew } from "../../utils/regex";
 import { AppSign } from "../../API/Authentication";
+import { STATUS_CODES } from "../../Enum/statusCodes";
 
 import { formDataGenerator } from "../../utils/form";
 
@@ -40,7 +41,7 @@ export const LoginRegister = () => {
     setErrorMsg(null);
     setIsLoading(true);
     const signResult = await AppSign(formData);
-    if (signResult.status === 401) setErrorMsg(wrongCredentials);
+    if (signResult.status === STATUS_CODES.NO_AUTH) setErrorMsg(wrongCredentials);
     else if (signResult.Error) setErrorMsg(somethingWentWrong);
     else {
       const { token, babyMonitor } = signResult;
