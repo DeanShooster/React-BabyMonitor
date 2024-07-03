@@ -1,0 +1,10 @@
+@import "../../../Styles/global.scss";
+
+.no-graph-data {
+  @include centerPosition(absolute);
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-align: center;
+}

@@ -9,3 +9,5 @@ export const MAX_BABY_HEIGHT = 100;
 export const MIN_BABY_HEIGHT = 25;
 
 export const MAX_BABY_AGE = 3;
+
+export const MAX_STATS_IMAGE_VIEW = 4;

@@ -37,6 +37,13 @@ export const HebrewDictionary: IDictionary = {
     manyMonths: "חודשים",
     singleDay: "יום",
     manyDays: "ימים",
+    noDailyStats: "אין נתונים",
+    feeding: "האכלות",
+    diapers: "צרכים",
+    sleep: "שינה",
+    journalNotes: "יומן הערות",
+    weightGraphField: "משקל",
+    weeklyStatsTitle: "נתונים שבועיים",
   },
   HeadersForm: {
     notes: "הערות",

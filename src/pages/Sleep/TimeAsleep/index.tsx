@@ -12,7 +12,8 @@ interface ITimeAsleep {
 
 export const TimeAsleep = ({ startTime, endTime }: ITimeAsleep) => {
   const { dictionary } = useContext(DictionaryContext);
-  const [_, setCurrentEndTime] = useState(endTime ? new Date(endTime) : new Date());
+
+  const [__, setCurrentEndTime] = useState(endTime ? new Date(endTime) : new Date());
 
   const { sleepingBaby, stillAsleep, hours } = dictionary.HeadersForm;
 

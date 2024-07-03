@@ -19,9 +19,8 @@ export const AgeBar = () => {
       <span>{dailyStats}</span>
       <Divider isVertical />
       <div>
-        {years && <span>{years === 1 ? `${singleYear}` : `${years} ${manyYears}`}</span>}
-        {months && <span>{months === 1 ? `${singleMonth}` : `${months} ${manyMonths}`}</span>}
-        {days && <span>{days === 1 ? `${singleDay}` : `${days} ${manyDays}`}</span>}
+        {years && <span>{years === 1 ? `${singleYear}` : `${years} ${manyYears}`}</span>}{" "}
+        {months && <span>{months === 1 ? `${singleMonth}` : `${months} ${manyMonths}`}</span>} {days && <span>{days === 1 ? `${singleDay}` : `${days} ${manyDays}`}</span>}
       </div>
     </div>
   );

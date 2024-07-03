@@ -1,5 +1,13 @@
 .age-bar-container {
+  padding: 6px 10px;
+
   display: flex;
   align-items: center;
   column-gap: 12px;
+
+  & > span {
+    font-size: 1.5rem;
+  }
+
+  font-size: 1.15rem;
 }

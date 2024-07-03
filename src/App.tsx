@@ -11,10 +11,12 @@ import { Sleep } from "./pages/Sleep";
 import { Feed } from "./pages/Feed";
 
 import "./App.scss";
+import { BackgroundBorderLineEffect } from "./components/BackgroundBorderLineEffect";
 
 function App() {
   return (
     <div className="app">
+      <BackgroundBorderLineEffect />
       <BrowserRouter>
         <DictionaryContextProvider>
           <BabyContextProvider>

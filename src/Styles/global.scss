@@ -141,6 +141,14 @@ $border-radius: 10px;
   }
 }
 
+@mixin card {
+  background-color: rgb(29, 38, 48);
+  box-shadow: 0 0 15px 5px rgb(26, 36, 48);
+
+  border: 1px solid rgba(248, 249, 250, 0.25);
+  border-radius: $border-radius;
+}
+
 //*********************************************** Classes **********************************************\\
 .header-form-selector-images-container {
   margin: 16px 0;

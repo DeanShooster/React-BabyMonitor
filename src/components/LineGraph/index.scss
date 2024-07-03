@@ -1,0 +1,32 @@
+@import "../../Styles/global.scss";
+
+.generic-line-graph-card {
+  position: relative;
+
+  padding: 24px;
+  min-height: 200px;
+  max-height: 400px;
+  min-width: 300px;
+
+  @include card;
+
+  .title-and-progress {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    & > h1 {
+      margin: 0 0 12px 0;
+
+      color: $main-text-color;
+
+      font-size: 1.5rem;
+      text-decoration: underline;
+      letter-spacing: 1px;
+    }
+  }
+
+  .responsive-graph-container {
+    direction: ltr;
+  }
+}

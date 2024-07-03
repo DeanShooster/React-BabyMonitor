@@ -1,6 +1,13 @@
-.vertical-divider {
-  width: 2px;
-  height: 15px;
+@import "../../Styles/global.scss";
 
-  background-color: white;
+.vertical-divider {
+  height: 1.75rem;
+
+  border: 1px dashed $border-color;
+}
+
+.horizontal-divider {
+  width: 100%;
+
+  border: 1px dashed $border-color;
 }

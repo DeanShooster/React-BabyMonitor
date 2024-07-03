@@ -1,0 +1,22 @@
+.generic-stat-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+
+  span {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  img {
+    padding: 0 !important;
+    width: 30px !important;
+  }
+
+  & > div {
+    display: flex;
+    column-gap: 4px;
+  }
+}
