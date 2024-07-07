@@ -1,13 +1,15 @@
 import { useContext, useRef, useState } from "react";
 import { DictionaryContext } from "../../../../Context/DictionaryContext";
+import { FILE_TOO_LARGE_ERROR, TOKEN_NAME } from "../../../../constants";
+import { UploadAvatar } from "../../../../API/Home";
+import { STATUS_CODES } from "../../../../Enum/statusCodes";
+
+import { ErrorMsg } from "../../../../components/ErrorMsg";
 
 import "./index.scss";
 import { Image } from "../../../../components/Image";
 import { Upload } from "../../../../assets";
-import { UploadAvatar } from "../../../../API/Home";
-import { TOKEN_NAME } from "../../../../constants";
 import { useLoader } from "../../../../Hooks/useLoader";
-import { ErrorMsg } from "../../../../components/ErrorMsg";
 
 interface IBabyAvatarForm {
   nextStep: Function;
@@ -34,15 +36,15 @@ export const BabyAvatarForm = ({ nextStep, setUpdatedBaby }: IBabyAvatarForm) =>
         setIsLoading(true);
         const result = await UploadAvatar(formData, token);
         if (result.Error) {
-          if (result.status === 400) setErrorMsg(dictionary.Errors.invalidFile);
+          if (result.status === STATUS_CODES.BAD_REQUEST || result.Error === FILE_TOO_LARGE_ERROR) setErrorMsg(dictionary.Errors.invalidFile);
         } else {
           if (setUpdatedBaby) setUpdatedBaby(result.babyMonitor);
           setErrorMsg(null);
+          nextStep();
         }
       }
       setIsLoading(false);
     }
-    nextStep();
   };
 
   const uploadFileHandler = (event: React.MouseEvent) => {

@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 
 import { NewBaby } from "./NewBaby";
+import { MonthlyUpdate } from "./MonthlyUpdate";
 import { BabyDailyStats } from "./BabyDailyStats";
 import { WeightHeightsGraphs } from "./WeightHeightGraphs";
 import { WeeklyStats } from "./WeeklyStats";
@@ -12,10 +13,10 @@ export const Home = () => {
   return (
     <section className="home-section">
       <NewBaby />
+      <MonthlyUpdate />
       <div className="baby-stats-container">
         <BabyDailyStats />
         <WeightHeightsGraphs />
-        BABY % GRAPH
       </div>
       <Divider isVertical={false} margin={{ marginTop: 32, marginBottom: 32 }} />
       <WeeklyStats />

@@ -3,18 +3,20 @@ import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YA
 import { NoGraphData } from "./NoGraphData";
 
 import "./index.scss";
+import { Image } from "../Image";
 
 export interface IData {
-  step: number;
+  step: number | string;
   value: number;
 }
 
 interface ILineGraph {
   title: string;
+  titleImg?: string;
   data: IData[];
 }
 
-export const LineGraph = ({ title, data }: ILineGraph) => {
+export const LineGraph = ({ title, titleImg, data }: ILineGraph) => {
   const graphStyle = {
     stroke: "#8996a4",
   };
@@ -31,6 +33,7 @@ export const LineGraph = ({ title, data }: ILineGraph) => {
     <div className="generic-line-graph-card">
       <div className="title-and-progress">
         <h1>{title}</h1>
+        {titleImg && <Image imageSrc={titleImg} />}
       </div>
       {data.length > 0 ? (
         <ResponsiveContainer height={175} className="responsive-graph-container">

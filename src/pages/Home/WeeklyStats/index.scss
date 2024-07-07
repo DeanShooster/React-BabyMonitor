@@ -1,8 +1,28 @@
+@import "../../../Styles/global.scss";
+
 .weekly-baby-stats-container {
   h1 {
     font-size: 2.25rem;
     letter-spacing: 2px;
     text-decoration: underline;
     text-underline-offset: 5px;
+
+    @media (max-width: $mobile) {
+      font-size: 1.75rem;
+    }
+  }
+
+  .weekly-graphs-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 32px;
+
+    @media (max-width: $laptop) {
+      flex-wrap: wrap;
+    }
+
+    & > div {
+      width: 100%;
+    }
   }
 }

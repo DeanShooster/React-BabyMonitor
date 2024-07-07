@@ -1,0 +1,37 @@
+@import "../../../../../Styles/global.scss";
+
+.note-wrapper {
+  padding: 12px 16px;
+
+  @include card;
+  box-shadow: $white-box-shadow;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 8px;
+
+    img {
+      width: 30px;
+    }
+
+    .note-title {
+      display: flex;
+      column-gap: 6px;
+
+      & > h2 {
+        margin: 0;
+        letter-spacing: 2px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
+  }
+
+  & > p {
+    margin: 16px 0 0 0;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+  }
+}

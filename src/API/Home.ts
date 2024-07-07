@@ -4,6 +4,7 @@ interface IInformation {
   weight?: number;
   height?: number;
   birthDate?: Date;
+  lastUpdate: Date;
 }
 
 const baseURL = "/information";

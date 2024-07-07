@@ -50,7 +50,7 @@ export const Feed = () => {
 
   return (
     <BabyFormModal>
-      <LastUpdate date={baby?.monitor[baby?.monitor.length - 1].feeding[baby?.monitor[baby?.monitor.length - 1].feeding.length - 1]?.time} />
+      <LastUpdate date={baby?.monitor[baby?.monitor.length - 1]?.feeding[baby?.monitor[baby?.monitor.length - 1]?.feeding.length - 1]?.time} />
       <form onSubmit={submitHandler}>
         <div className="header-form-selector-images-container">
           <Image imageSrc={BreastFeed} onClick={() => setIsBottle(false)} className={isBottle ? "not-selected-img" : "selected-img"} />

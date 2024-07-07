@@ -16,30 +16,31 @@ export interface IBaby {
     weight: number[];
     height: number[];
     birthDate: Date | null;
+    lastUpdate: Date | null;
   };
   monitor: IMonitor[];
 }
 
-interface IMonitor {
+export interface IMonitor {
   date: Date;
   feeding: IFeed[];
   diapers: IDiaper[];
   sleep: ISleep[];
 }
 
-interface IFeed {
+export interface IFeed {
   time: Date;
   isBottle: boolean;
   note?: string;
 }
 
-interface IDiaper {
+export interface IDiaper {
   time: Date;
   isPee: boolean;
   note?: string;
 }
 
-interface ISleep {
+export interface ISleep {
   startTime: Date;
   endTime?: Date;
   note?: string;

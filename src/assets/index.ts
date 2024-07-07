@@ -14,3 +14,4 @@ export { default as X } from "./svg/X.svg";
 export { default as BabyBottle2 } from "./svg/BabyBottle2.svg";
 export { default as BreastFeed } from "./svg/BreastFeed.svg";
 export { default as StatsGraph } from "./svg/StatsGraph.svg";
+export { default as Firework } from "./svg/Firework.svg";

@@ -1,3 +1,5 @@
 export enum STATUS_CODES {
+  BAD_REQUEST = 400,
   NO_AUTH = 403,
+  SERVER_ERROR = 500,
 }

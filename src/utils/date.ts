@@ -52,6 +52,14 @@ export function formatDateToDDMMYYYY(date: Date) {
   return `${day}/${month}/${year}`;
 }
 
+export function formatDateToHHMMSS(date: Date) {
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+
+  return `${hours}:${minutes}:${seconds}`;
+}
+
 export function getTimeDiffInHHMMSS(date1: Date, date2: Date) {
   const diffInMillis = Math.abs(date2.getTime() - date1.getTime());
 

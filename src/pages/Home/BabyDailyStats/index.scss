@@ -3,6 +3,10 @@
 .baby-daily-stats-container {
   @include card;
 
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
+
   .baby-daily-stats-wrapper {
     padding: 20px 40px;
 
@@ -15,6 +19,10 @@
     img {
       width: 75px;
       padding: 0 10px;
+
+      @media (max-width: $mobile) {
+        width: 55px;
+      }
     }
   }
 

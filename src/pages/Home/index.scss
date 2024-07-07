@@ -1,10 +1,19 @@
+@import "../../Styles/global.scss";
+
 .home-section {
   width: 90%;
   margin: 32px auto 0 auto;
+  padding-bottom: 64px;
 
   .baby-stats-container {
     display: flex;
     justify-content: center;
-    column-gap: 64px;
+    gap: 64px;
+
+    @media (max-width: $laptop) {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 32px;
+    }
   }
 }

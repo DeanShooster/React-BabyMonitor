@@ -1,4 +1,10 @@
+@import "../../../Styles/global.scss";
+
 .weight-height-graphs-container {
   display: flex;
-  column-gap: 24px;
+  gap: 24px;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
 }

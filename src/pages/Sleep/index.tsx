@@ -28,7 +28,7 @@ export const Sleep = () => {
 
   const { isLoading, setIsLoading, loader } = useLoader({ size: 50, removeAbsolute: true });
 
-  const lastSleepItem = baby?.monitor[baby?.monitor.length - 1].sleep[baby?.monitor[baby?.monitor.length - 1].sleep.length - 1];
+  const lastSleepItem = baby?.monitor[baby?.monitor.length - 1]?.sleep[baby?.monitor[baby?.monitor.length - 1]?.sleep.length - 1];
   const isEndTime = lastSleepItem?.startTime && !lastSleepItem.endTime;
   const isStartTime = lastSleepItem?.startTime && lastSleepItem.endTime ? true : false;
 

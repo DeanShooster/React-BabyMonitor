@@ -56,7 +56,7 @@ export const BabyInformationForm = ({ nextStep, setUpdatedBaby }: IBabyInformati
 
     const token = localStorage.getItem(TOKEN_NAME);
     if (token) {
-      const updateResult = await UpdateInformation({ weight, height, birthDate }, token);
+      const updateResult = await UpdateInformation({ weight, height, birthDate, lastUpdate: new Date() }, token);
       if (updateResult.Error) setErrorMsg(somethingWentWrong);
       else {
         setUpdatedBaby(updateResult.babyMonitor);
