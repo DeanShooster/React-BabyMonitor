@@ -54,6 +54,7 @@ export const LineGraph = ({ title, titleImg, data }: ILineGraph) => {
               contentStyle={{
                 backgroundColor: "rgb(19, 25, 32)",
                 borderRadius: "5px",
+                direction: "rtl",
               }}
             />
           </LineChart>

@@ -65,7 +65,7 @@ export const MonthlyUpdate = () => {
 
   return (
     <>
-      {!isBefore(lastUpdated, new Date()) && (
+      {isBefore(lastUpdated, new Date()) && (
         <BabyFormModal>
           <div className="title-container">
             <Image imageSrc={Firework} />

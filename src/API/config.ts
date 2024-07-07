@@ -1,4 +1,4 @@
-export const server = "http://localhost:8080";
+export const server = "http://54.247.60.245:8080";
 
 /**
  * Generic error handler. Defined by server error configuration of { Message , status } for errors.
