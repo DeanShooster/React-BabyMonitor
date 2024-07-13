@@ -18,7 +18,7 @@ export const Journal = () => {
 
   const navigate = useNavigate();
 
-  const monitor = baby ? baby.monitor : [];
+  const monitor = baby ? [...baby.monitor] : [];
 
   return (
     <section className="journal-page">
