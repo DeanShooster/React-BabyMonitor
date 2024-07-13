@@ -36,7 +36,7 @@ export const LineGraph = ({ title, titleImg, data }: ILineGraph) => {
         {titleImg && <Image imageSrc={titleImg} />}
       </div>
       {data.length > 0 ? (
-        <ResponsiveContainer height={175} className="responsive-graph-container">
+        <ResponsiveContainer height={200} className="responsive-graph-container">
           <LineChart data={data} margin={{ top: 10, right: 10 }}>
             <CartesianGrid strokeDasharray="1 5" strokeOpacity={0.5} vertical={false} />
             <XAxis dataKey="step" {...graphStyle} tickLine={false} axisLine={false} tickMargin={10} />

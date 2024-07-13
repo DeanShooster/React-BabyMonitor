@@ -81,3 +81,14 @@ export function getTimeDiffInHHMMSS(date1: Date, date2: Date) {
 export function isSameDay(date1: Date, date2: Date) {
   return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
 }
+
+export function timeDifference(date1: Date, date2: Date) {
+  const diff = date2.getTime() - date1.getTime();
+
+  const diffHours = Math.floor(diff / (1000 * 60 * 60));
+  const diffMinutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+  const formattedDiff = diffHours + diffMinutes / 100;
+
+  return Number(formattedDiff.toFixed(2));
+}

@@ -12,6 +12,7 @@ export const HebrewDictionary: IDictionary = {
     uploadFile: "תמונה להעלאה",
     lastUpdate: "עודכן לאחרונה",
     missingInformation: "אין נתונים קודמים",
+    oClock: "בשעה",
   },
   Errors: {
     noData: "חסרים נתונים",
@@ -42,10 +43,13 @@ export const HebrewDictionary: IDictionary = {
     feeding: "האכלות",
     diapers: "צרכים",
     sleep: "שינה",
-    journalNotes: "יומן הערות",
+    journalNotes: "יומן הערות יומי",
+    fullJournal: "יומן מלא",
     weightGraphField: "משקל",
     weeklyStatsTitle: "נתונים שבועיים",
     dailyNotes: "הערות יומיות",
+    age: "בגיל",
+    and: "ו",
   },
   HeadersForm: {
     notes: "הערות",
@@ -55,5 +59,9 @@ export const HebrewDictionary: IDictionary = {
     sleepingBaby: "התינוק ישן",
     stillAsleep: "התינוק עדיין ישן",
     hours: "שעות",
+  },
+  Journal: {
+    history: "היומן של",
+    singleFeed: "האכלה",
   },
 };

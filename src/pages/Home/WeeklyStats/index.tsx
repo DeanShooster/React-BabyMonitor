@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { DictionaryContext } from "../../../Context/DictionaryContext";
-import { BabyContext, IMonitor } from "../../../Context/BabyContext";
+import { BabyContext, IMonitor, ISleep } from "../../../Context/BabyContext";
 import { IData, LineGraph } from "../../../components/LineGraph";
 
-import { formatDateToDDMMYYYY, isBefore } from "../../../utils/date";
+import { formatDateToDDMMYYYY, isBefore, timeDifference } from "../../../utils/date";
 
 import "./index.scss";
 import { BabyBottle, Bed, Diaper } from "../../../assets";
@@ -20,6 +20,13 @@ export const WeeklyStats = () => {
   const { weeklyStatsTitle, feeding, diapers, sleep } = dictionary.Home;
 
   if (!baby) return null;
+
+  const totalDailySleepCalculator = (sleep: ISleep[]) => {
+    let totalSleep = 0;
+    for (let i = 0; i < sleep.length; i++)
+      if (sleep[i].startTime && sleep[i].endTime !== undefined) totalSleep += timeDifference(new Date(sleep[i].startTime), new Date(sleep[i].endTime!));
+    return totalSleep;
+  };
 
   const lastWeekMonitor: IMonitor[] = [];
 
@@ -47,7 +54,7 @@ export const WeeklyStats = () => {
     });
     sleepData.push({
       step: monitorDate,
-      value: lastWeekMonitor[i].sleep.length,
+      value: totalDailySleepCalculator(lastWeekMonitor[i].sleep),
     });
   }
 

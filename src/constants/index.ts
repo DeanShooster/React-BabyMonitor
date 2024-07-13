@@ -1,5 +1,8 @@
 export const TOKEN_NAME = "BabyMonitorToken";
 
+export const MOBILE_VIEW = 600;
+export const LAPTOP_VIEW = 1250;
+
 export const MAX_INPUT_NAME_LENGTH = 15;
 export const MIN_INPUT_NAME_LENGTH = 2;
 

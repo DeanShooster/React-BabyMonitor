@@ -15,3 +15,5 @@ export { default as BabyBottle2 } from "./svg/BabyBottle2.svg";
 export { default as BreastFeed } from "./svg/BreastFeed.svg";
 export { default as StatsGraph } from "./svg/StatsGraph.svg";
 export { default as Firework } from "./svg/Firework.svg";
+export { default as ArrowRight } from "./svg/ArrowRight.svg";
+export { default as ArrowLeft } from "./svg/ArrowLeft.svg";

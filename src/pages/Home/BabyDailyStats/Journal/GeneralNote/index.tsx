@@ -11,13 +11,14 @@ interface IGeneralNote {
   time: Date;
   img: string;
   title: string;
+  className?: string;
 }
 
-export const GeneralNote = ({ note, time, img, title }: IGeneralNote) => {
+export const GeneralNote = ({ note, time, img, title, className }: IGeneralNote) => {
   const { dictionary } = useContext(DictionaryContext);
 
   return (
-    <div className="note-wrapper">
+    <div className={className || "note-wrapper"}>
       <div>
         <div className="note-title">
           <h2>{title}</h2>

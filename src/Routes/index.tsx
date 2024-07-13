@@ -3,4 +3,5 @@ export const routes: { [key: string]: string } = {
   Feeding: "/feeding",
   Diaper: "/diaper",
   Sleep: "/sleep",
+  Journal: "/journal",
 };

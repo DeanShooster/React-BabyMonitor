@@ -10,7 +10,7 @@ export const AgeBar = () => {
   const { baby } = useContext(BabyContext);
   const { dictionary } = useContext(DictionaryContext);
 
-  const { dailyStats, singleYear, manyYears, singleMonth, manyMonths, singleDay, manyDays } = dictionary.Home;
+  const { dailyStats, singleYear, manyYears, singleMonth, manyMonths, singleDay, manyDays, age, and } = dictionary.Home;
 
   const { years, months, days } = baby?.information.birthDate ? calculateSpecificAge(baby?.information.birthDate) : { years: null, months: null, days: null };
 
@@ -19,8 +19,15 @@ export const AgeBar = () => {
       <span>{dailyStats}</span>
       <Divider isVertical />
       <div>
+        {`${baby?.babyName} ${age}`}
         {years && <span>{years === 1 ? `${singleYear}` : `${years} ${manyYears}`}</span>}{" "}
-        {months && <span>{months === 1 ? `${singleMonth}` : `${months} ${manyMonths}`}</span>} {days && <span>{days === 1 ? `${singleDay}` : `${days} ${manyDays}`}</span>}
+        {months && <span>{months === 1 ? `${singleMonth}` : `${months} ${manyMonths}`}</span>}{" "}
+        {days && (
+          <span>
+            {and}
+            {days === 1 ? `${singleDay}` : `${days} ${manyDays}`}
+          </span>
+        )}
       </div>
     </div>
   );

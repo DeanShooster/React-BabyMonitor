@@ -6,6 +6,7 @@ const defaultDictionary: IDictionary = {
   Errors: {},
   Home: {},
   HeadersForm: {},
+  Journal: {},
 };
 
 export interface IDictionary {
@@ -13,6 +14,7 @@ export interface IDictionary {
   Errors: { [key: string]: string };
   Home: { [key: string]: string };
   HeadersForm: { [key: string]: string };
+  Journal: { [key: string]: string };
 }
 
 interface IDictionaryContext {

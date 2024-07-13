@@ -9,6 +9,7 @@ import { Home } from "./pages/Home";
 import { Diaper } from "./pages/Diaper";
 import { Sleep } from "./pages/Sleep";
 import { Feed } from "./pages/Feed";
+import { Journal } from "./pages/Journal";
 
 import "./App.scss";
 import { BackgroundBorderLineEffect } from "./components/BackgroundBorderLineEffect";
@@ -28,6 +29,7 @@ function App() {
                   <Route path={routes.Sleep} element={<Sleep />} />
                   <Route path={routes.Feeding} element={<Feed />} />
                 </Route>
+                <Route path={routes.Journal} element={<Journal />} />
               </Routes>
             </Guard>
           </BabyContextProvider>

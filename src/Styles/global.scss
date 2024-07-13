@@ -32,6 +32,12 @@ $border-radius: 10px;
   transform: translate(-50%, -50%);
 }
 
+@mixin sectionPage {
+  width: 90%;
+  margin: 32px auto 0 auto;
+  padding-bottom: 64px;
+}
+
 @mixin input {
   padding: 5px 10px 5px 0;
 

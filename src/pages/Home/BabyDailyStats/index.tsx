@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router";
+import { routes } from "../../../Routes";
 import { DictionaryContext } from "../../../Context/DictionaryContext";
 
 import { AgeBar } from "./AgeBar";
@@ -11,6 +13,10 @@ import { StatsGraph } from "../../../assets";
 
 export const BabyDailyStats = () => {
   const { dictionary } = useContext(DictionaryContext);
+  const { journalNotes, fullJournal } = dictionary.Home;
+
+  const navigate = useNavigate();
+
   const [showJournal, setShowJournal] = useState<boolean>(false);
 
   return (
@@ -21,7 +27,8 @@ export const BabyDailyStats = () => {
         <Stats />
       </div>
       <div className="journal">
-        <button onClick={() => setShowJournal(true)}>{dictionary.Home.journalNotes}</button>
+        <button onClick={() => setShowJournal(true)}>{journalNotes}</button>
+        <button onClick={() => navigate(routes.Journal)}>{fullJournal}</button>
         {showJournal && <Journal closeModal={() => setShowJournal(false)} />}
       </div>
     </div>
