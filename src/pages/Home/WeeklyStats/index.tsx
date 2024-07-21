@@ -43,7 +43,7 @@ export const WeeklyStats = () => {
     sleepData: IData[] = [];
 
   for (let i = 0; i < lastWeekMonitor.length; i++) {
-    const monitorDate: string = formatDateToDDMMYYYY(new Date(lastWeekMonitor[i].date));
+    const monitorDate: string = formatDateToDDMMYYYY(new Date(lastWeekMonitor[i].date)).substring(0, 4);
     feedingData.push({
       step: monitorDate,
       value: lastWeekMonitor[i].feeding.length,
@@ -54,7 +54,7 @@ export const WeeklyStats = () => {
     });
     sleepData.push({
       step: monitorDate,
-      value: totalDailySleepCalculator(lastWeekMonitor[i].sleep),
+      value: Number(totalDailySleepCalculator(lastWeekMonitor[i].sleep).toFixed(2)),
     });
   }
 

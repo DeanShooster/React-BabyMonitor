@@ -6,7 +6,7 @@ import { BabyContext, IMonitor } from "../../Context/BabyContext";
 
 import "./index.scss";
 import { Image } from "../../components/Image";
-import { ArrowRight } from "../../assets";
+import { ArrowRight, Heart } from "../../assets";
 import { DailyJournal } from "./DailyJournal";
 import { Divider } from "../../components/Divider";
 
@@ -23,7 +23,11 @@ export const Journal = () => {
   return (
     <section className="journal-page">
       <Image imageSrc={ArrowRight} className="nav-back-icon" onClick={() => navigate(routes.Home)} />
-      <h1>{`${history} ${baby?.babyName}`}</h1>
+      <h1>
+        <Image imageSrc={Heart} className="heart-animation" />
+        {`${history} ${baby?.babyName}`}
+        <Image imageSrc={Heart} className="heart-animation" />
+      </h1>
       {monitor.reverse().map((monitorItem: IMonitor, index: number) => {
         return (
           <>

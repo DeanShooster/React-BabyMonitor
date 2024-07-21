@@ -4,6 +4,7 @@ import { routes } from "../../Routes";
 import { DictionaryContext } from "../../Context/DictionaryContext";
 import { BabyContext } from "../../Context/BabyContext";
 import { UpdateSleepInformation } from "../../API/CategoriesUpdates";
+import { TOKEN_NAME } from "../../constants";
 
 import { formDataGenerator } from "../../utils/form";
 
@@ -15,7 +16,6 @@ import { TimeAsleep } from "./TimeAsleep";
 
 import "./index.scss";
 import { useLoader } from "../../Hooks/useLoader";
-import { TOKEN_NAME } from "../../constants";
 
 export const Sleep = () => {
   const { dictionary } = useContext(DictionaryContext);

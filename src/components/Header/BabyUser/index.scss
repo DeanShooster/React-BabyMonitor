@@ -20,9 +20,16 @@
     position: relative;
 
     .baby-name {
-      font-size: 3rem;
-      letter-spacing: 2px;
-      text-shadow: 1px 1px 1px $main-text-color;
+      font: 700 3rem "Oswald", sans-serif;
+      letter-spacing: 1px;
+      text-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+      background: url("../../../assets/images/HeartsBG.jpg") repeat-y;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: background-slider 30s linear infinite;
+      -webkit-transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
 
       @media (max-width: $mobile) {
         font-size: 1.75rem;
@@ -36,4 +43,13 @@
 .x-close-modal-icon {
   @include x-close-btn;
   margin-bottom: 10px;
+}
+
+@keyframes background-slider {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

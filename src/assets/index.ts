@@ -17,3 +17,4 @@ export { default as StatsGraph } from "./svg/StatsGraph.svg";
 export { default as Firework } from "./svg/Firework.svg";
 export { default as ArrowRight } from "./svg/ArrowRight.svg";
 export { default as ArrowLeft } from "./svg/ArrowLeft.svg";
+export { default as Heart } from "./svg/Heart.svg";
