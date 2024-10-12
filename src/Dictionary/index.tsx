@@ -27,7 +27,7 @@ export const HebrewDictionary: IDictionary = {
   Home: {
     welcome: "ברוך הבא",
     newBabyNotice: "מזל טוב לתינוקי! אנחנו צריכים לעדכן כמה פרטים.",
-    monthlyUpdate: "איזה כיף! עבר חודש והתינוק גדל",
+    monthlyUpdate: "איזה כיף התינוק גדל! הגיע הזמן לעדכון חודשי",
     weight: `משקל גרם`,
     height: `גובה ס"מ`,
     birthDate: "תאריך לידה",

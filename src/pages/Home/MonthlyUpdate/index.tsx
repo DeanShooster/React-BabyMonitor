@@ -19,11 +19,10 @@ export const MonthlyUpdate = () => {
   const { dictionary } = useContext(DictionaryContext);
   const { baby, setBaby } = useContext(BabyContext);
 
+  const [lastUpdated, setLastUpdated] = useState<Date>(new Date(baby?.information.lastUpdate!));
+
   const { weight, height, monthlyUpdate } = dictionary.Home;
   const { noData, invalidWeight, invalidHeight, somethingWentWrong } = dictionary.Errors;
-
-  const lastUpdated = new Date(baby?.information.lastUpdate!);
-  lastUpdated.setDate(lastUpdated.getDate() + 30);
 
   const { isLoading, setIsLoading, loader } = useLoader({ size: 50, removeAbsolute: true });
 
@@ -65,8 +64,8 @@ export const MonthlyUpdate = () => {
 
   return (
     <>
-      {isBefore(lastUpdated, new Date()) && (
-        <BabyFormModal>
+      {isBefore(new Date(new Date().setDate(lastUpdated.getDate() + 30)), new Date()) && (
+        <BabyFormModal onClick={() => setLastUpdated(new Date())}>
           <div className="title-container">
             <Image imageSrc={Firework} />
             <h1>{monthlyUpdate}</h1>

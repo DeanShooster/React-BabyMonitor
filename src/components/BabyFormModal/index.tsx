@@ -13,7 +13,7 @@ export const BabyFormModal: FC<any> = (props) => {
 
   return (
     <Modal>
-      <Image imageSrc={X} onClick={() => navigate(routes.Home)} className="close-modal-icon" />
+      <Image imageSrc={X} onClick={props.onClick ? props.onClick : () => navigate(routes.Home)} className="close-modal-icon" />
       {props.children}
     </Modal>
   );
