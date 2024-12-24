@@ -9,7 +9,7 @@ import { GeneralNote } from "./GeneralNote";
 
 import "./index.scss";
 import { Image } from "../../../../components/Image";
-import { BabyBottle, Bed, BreastFeed, Pee, Poop, X } from "../../../../assets";
+import { BabyBottle, Bed, BreastFeed, Pee, Poop, Soup, X } from "../../../../assets";
 
 interface IJournal {
   closeModal: Function;
@@ -48,7 +48,7 @@ export const Journal = ({ closeModal }: IJournal) => {
                 img = item.isPee ? Pee : Poop;
                 title = diapers;
               } else if ("isBottle" in item) {
-                img = item.isBottle ? BabyBottle : BreastFeed;
+                img = item.isRealFood ? Soup : item.isBottle ? BabyBottle : BreastFeed;
                 title = feeding;
               } else {
                 img = Bed;

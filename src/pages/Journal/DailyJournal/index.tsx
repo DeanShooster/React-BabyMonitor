@@ -9,7 +9,7 @@ import { useWindowSize } from "../../../Hooks/useWindowSize";
 import { GeneralNote } from "../../Home/BabyDailyStats/Journal/GeneralNote";
 
 import "./index.scss";
-import { ArrowLeft, BabyBottle, Bed, BreastFeed, Pee, Poop } from "../../../assets";
+import { ArrowLeft, BabyBottle, Bed, BreastFeed, Pee, Poop, Soup } from "../../../assets";
 import { Image } from "../../../components/Image";
 
 interface IDailyJournal {
@@ -39,7 +39,7 @@ export const DailyJournal = ({ monitor }: IDailyJournal) => {
             img = item.isPee ? Pee : Poop;
             title = diapers;
           } else if ("isBottle" in item) {
-            img = item.isBottle ? BabyBottle : BreastFeed;
+            img = item.isRealFood ? Soup : item.isBottle ? BabyBottle : BreastFeed;
             title = dictionary.Journal.singleFeed;
           } else {
             img = Bed;

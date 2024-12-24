@@ -1,3 +1,4 @@
+import { FEED } from "../Enum/statusCodes";
 import { errorHandler, server } from "./config";
 
 interface IDiaperInformation {
@@ -13,7 +14,7 @@ interface ISleepInformation {
 }
 
 interface IFeedInformation {
-  isBottle: boolean;
+  feed: FEED;
   time: Date;
   note: string;
 }

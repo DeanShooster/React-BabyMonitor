@@ -31,6 +31,7 @@ export interface IMonitor {
 export interface IFeed {
   time: Date;
   isBottle: boolean;
+  isRealFood?: boolean;
   note?: string;
 }
 
