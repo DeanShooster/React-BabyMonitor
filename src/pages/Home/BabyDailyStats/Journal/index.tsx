@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { DictionaryContext } from "../../../../Context/DictionaryContext";
 import { BabyContext, IDiaper, IFeed, ISleep } from "../../../../Context/BabyContext";
-import { isSameDay } from "../../../../utils/date";
+import { getTimeDiffInHHMMSS, isSameDay } from "../../../../utils/date";
 import { extractDate } from "../../../../utils/babyUtil";
 
 import { Modal } from "../../../../components/Modal";
@@ -55,7 +55,12 @@ export const Journal = ({ closeModal }: IJournal) => {
                 title = sleep;
               }
 
-              return <GeneralNote key={index} note={item.note} time={item.time || item.startTime} img={img} title={title} />;
+              let sleepNote = "";
+              if (item.endTime && item.startTime) {
+                const timeSlept = getTimeDiffInHHMMSS(new Date(item.startTime), new Date(item.endTime));
+                sleepNote = `${dictionary.HeadersForm.sleepingBaby} - ${timeSlept} ${dictionary.HeadersForm.hours}`;
+              }
+              return <GeneralNote key={index} note={`${sleepNote}${item.note ? `, ${item.note}` : ""}`} time={item.time || item.startTime} img={img} title={title} />;
             })
           ) : (
             <div className="no-data">{noDailyStats}</div>

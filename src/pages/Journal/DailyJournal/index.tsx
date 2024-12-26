@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { DictionaryContext } from "../../../Context/DictionaryContext";
 import { IDiaper, IFeed, IMonitor, ISleep } from "../../../Context/BabyContext";
 import { extractDate } from "../../../utils/babyUtil";
-import { formatDateToDDMMYYYY } from "../../../utils/date";
+import { formatDateToDDMMYYYY, getTimeDiffInHHMMSS } from "../../../utils/date";
 import { LAPTOP_VIEW } from "../../../constants";
 import { useWindowSize } from "../../../Hooks/useWindowSize";
 
@@ -45,9 +45,21 @@ export const DailyJournal = ({ monitor }: IDailyJournal) => {
             img = Bed;
             title = sleep;
           }
+          let sleepNote = "";
+          if (item.endTime && item.startTime) {
+            const timeSlept = getTimeDiffInHHMMSS(new Date(item.startTime), new Date(item.endTime));
+            sleepNote = `${dictionary.HeadersForm.sleepingBaby} - ${timeSlept} ${dictionary.HeadersForm.hours}`;
+          }
           return (
             <>
-              <GeneralNote key={index} className="general-note" note={item.note} time={item.time || item.startTime} img={img} title={title} />
+              <GeneralNote
+                key={index}
+                className="general-note"
+                note={`${sleepNote}${item.note ? `, ${item.note}` : ""}`}
+                time={item.time || item.startTime}
+                img={img}
+                title={title}
+              />
               {index < updates.length - 1 && <Image imageSrc={ArrowLeft} className={windowSize <= LAPTOP_VIEW ? "mobile-arrow-image" : undefined} />}
             </>
           );
